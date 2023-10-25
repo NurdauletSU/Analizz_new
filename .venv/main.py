@@ -1,16 +1,24 @@
+#%%
 import psycopg2
-import pandas
- 
-conn = psycopg2.connect(
-    dbname="Analiz", 
-    user="postgres", 
-    password="Parol123", 
-    host="127.0.0.1", 
-    port="5432")
+import pandas as pd
+import numpy as np
+import seaborn as sns                       #visualisation
+import matplotlib.pyplot as plt             #visualisation
+import matplotlib_inline     
+sns.set(color_codes=True)
+
+connection = psycopg2.connect(
+    database="Analiz",
+    user="postgres",
+    password="Parol123",
+    host="localhost",
+    port=5432,
+)
+
 
 if connection:
     print("connection is set...")
-else: 
+else:
     print("connection is not set...")
 
 
@@ -80,4 +88,4 @@ ax.scatter(df['HP'], df['Price'])
 ax.set_xlabel('HP')
 ax.set_ylabel('Price')
 plt.show()
-# %%
+#%%
